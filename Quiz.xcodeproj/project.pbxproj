@@ -288,6 +288,7 @@
 				70FD17871CE99B2300ED2B97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
