@@ -9,17 +9,36 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet var questionLabel: UILabel!    //@IOOutlet keyword let Xcode know this will connect to label objects using Interface Builder
+    @IBOutlet var answerLabel: UILabel!
+    
+    let questions: [String] = ["From what is conag made?", "What is 7+7?", "What is capital of Vermont?"]
+    let answers: [String] = ["Grape", "14", "Montpelier"]
+    var currentQuestionIndex: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        questionLabel.text = questions[currentQuestionIndex]
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    //@IBAction keyword let Xcode know this will connect to label objects using Interface Builder
+    @IBAction func showNextQuestion(sender: AnyObject)
+    {
+        currentQuestionIndex += 1
+        if currentQuestionIndex == questions.count
+        {
+            currentQuestionIndex = 0
+        }
+        
+        let question: String = questions[currentQuestionIndex]
+        questionLabel.text = question
+        answerLabel.text = "???"
     }
-
-
+    
+    @IBAction func showAnswer(sender: AnyObject)
+    {
+        let answer: String = answers[currentQuestionIndex]
+        answerLabel.text = answer
+    }
 }
 
